@@ -31,9 +31,16 @@
 				</div>
 			</form>
 			<br />
-			<!-- <a href="/login" th:href="@{/login}" class="btn btn-info btn-lg"> -->
-			<!-- <span class="glyphicon glyphicon-chevron-left"></span> Login using  other social Providers -->
-			<!-- </a> -->
+			<form action="/logout" method="POST">
+			  <div class="formInfo">
+			    <p>
+			      This Application is connected to your LinkedIn account.
+			      Click the button if you wish to disconnect.
+			    </p>
+			  </div>
+			  <button type="submit">Disconnect</button>	
+			  <input type="hidden" name="_method" value="delete" />
+			</form>
 		</div>
 	</body>
 	<script type="text/javascript" src="/webjars/jquery/2.1.1/jquery.min.js"></script>

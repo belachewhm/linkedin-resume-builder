@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class LoginBean {
+public class ConnectionBean {
 	private LinkedIn linkedIn;
 	private ConnectionRepository connectionRepository;
 }

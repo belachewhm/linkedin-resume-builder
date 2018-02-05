@@ -7,7 +7,7 @@ import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import io.github.belachewhm.linkedin.resume.builder.model.LoginBean;
+import io.github.belachewhm.linkedin.resume.builder.model.ConnectionBean;
 import io.github.belachewhm.linkedin.resume.builder.model.UserBean;
 
 @Service
@@ -17,7 +17,7 @@ public class LoginService {
 	private static final String REDIRECT_LOGIN = "redirect:/login";
 
 	@Autowired
-	LoginBean loginBean;
+	ConnectionBean loginBean;
 
 	public String getUserData(Model model, UserBean userForm) {
 		ConnectionRepository connectionRepository = loginBean.getConnectionRepository();
