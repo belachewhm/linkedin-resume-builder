@@ -1,0 +1,7 @@
+server:
+  port: 3000
+spring:
+  social:
+    linkedin:
+      app-id: 771mrzk94hye1w
+      app-secret: iIJFgBf9lCb18zYe
