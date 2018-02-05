@@ -8,8 +8,8 @@
 		<meta name="viewport" content="width=device-width" />
 		<meta name="ctx" th:content="${#httpServletRequest.getContextPath()}" />
 		<base href="/" />
-		<link rel="stylesheet" type="text/css" href="/linkedin-resume-builder/webjars/bootstrap/3.2.0/css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="/linkedin-resume-builder/webjars/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+		<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/3.2.0/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 	</head>
 	<body>
 		<div class="container">
@@ -26,16 +26,16 @@
 					<span th:text="*{firstName}" /> <span th:text="*{lastName}" />
 				</div>
 				<div class="row">
-					<label for="image">Name:</label>
+					<label for="image">Picture:</label>
 					<img th:attr="src=@{*{image}}" style="width: 150px; height: 150px;"/>
 				</div>
 			</form>
 			<br />
-			<a href="/login" th:href="@{/login}" class="btn btn-info btn-lg">
-			<span class="glyphicon glyphicon-chevron-left"></span> Login using  other social Providers
-			</a>
+			<!-- <a href="/login" th:href="@{/login}" class="btn btn-info btn-lg"> -->
+			<!-- <span class="glyphicon glyphicon-chevron-left"></span> Login using  other social Providers -->
+			<!-- </a> -->
 		</div>
 	</body>
-	<script type="text/javascript" src="/linkedin-resume-builder/webjars/jquery/2.1.1/jquery.min.js"></script>
-	<script type="text/javascript" src="/linkedin-resume-builder/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/webjars/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </html>
