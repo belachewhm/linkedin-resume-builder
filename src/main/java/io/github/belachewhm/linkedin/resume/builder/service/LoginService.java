@@ -1,4 +1,4 @@
-package io.github.belachewhm.linkedin.resume.builder.providers;
+package io.github.belachewhm.linkedin.resume.builder.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.ConnectionRepository;
@@ -7,20 +7,20 @@ import org.springframework.social.linkedin.api.LinkedInProfileFull;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import io.github.belachewhm.linkedin.resume.builder.model.LoginBean;
 import io.github.belachewhm.linkedin.resume.builder.model.UserBean;
 
 @Service
-public class LinkedInProvider {
+public class LoginService {
 	private static final String LINKED_IN = "linkedIn";
 
 	private static final String REDIRECT_LOGIN = "redirect:/login";
 
 	@Autowired
-	BaseProvider socialLoginBean;
+	LoginBean loginBean;
 
-	public String getLinkedInUserData(Model model, UserBean userForm) {
-
-		ConnectionRepository connectionRepository = socialLoginBean.getConnectionRepository();
+	public String getUserData(Model model, UserBean userForm) {
+		ConnectionRepository connectionRepository = loginBean.getConnectionRepository();
 		if (connectionRepository.findPrimaryConnection(LinkedIn.class) == null) {
 			return REDIRECT_LOGIN;
 		}
@@ -30,7 +30,7 @@ public class LinkedInProvider {
 	}
 
 	private void populateUserDetailsFromLinkedIn(UserBean userForm) {
-		LinkedIn linkedIn = socialLoginBean.getLinkedIn();
+		LinkedIn linkedIn = loginBean.getLinkedIn();
 		LinkedInProfileFull linkedInUser = linkedIn.profileOperations().getUserProfileFull();
 		userForm.setEmail(linkedInUser.getEmailAddress());
 		userForm.setFirstName(linkedInUser.getFirstName());

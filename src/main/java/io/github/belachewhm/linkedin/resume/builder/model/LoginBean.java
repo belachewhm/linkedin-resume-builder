@@ -1,6 +1,5 @@
-package io.github.belachewhm.linkedin.resume.builder.providers;
+package io.github.belachewhm.linkedin.resume.builder.model;
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.social.connect.ConnectionRepository;
@@ -13,9 +12,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-@Configuration
 @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class BaseProvider {
+public class LoginBean {
 	private LinkedIn linkedIn;
 	private ConnectionRepository connectionRepository;
 }

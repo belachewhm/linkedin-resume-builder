@@ -8,8 +8,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class WebConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		if (!registry.hasMappingForPattern("/webjars/**")) {
+		if(!registry.hasMappingForPattern("/webjars/**"))
+		{
 			registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+		}
+		
+		if(!registry.hasMappingForPattern("/images/**"))
+		{
+			registry.addResourceHandler("/images/**").addResourceLocations("classpath:/images/");
 		}
 	}
 }

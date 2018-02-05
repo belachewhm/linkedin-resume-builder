@@ -1,4 +1,4 @@
-package io.github.belachewhm.linkedin.resume.builder.identifier;
+package io.github.belachewhm.linkedin.resume.builder.config;
 
 import java.util.UUID;
 
@@ -9,7 +9,7 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 
 @Configuration
-public class SessionIdentifier extends SocialConfigurerAdapter {
+public class SessionIdentifierConfig extends SocialConfigurerAdapter {
 
 	@Override
 	public UserIdSource getUserIdSource() {

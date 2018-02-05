@@ -18,6 +18,6 @@ public class ChangeDefaultFlowController extends ConnectController {
 	
 	@Override
     protected String connectedView(String providerId) {
-        return "redirect:/"+providerId;
+        return "redirect:https://github.com/belachewhm/linkedin-resume-builder"+providerId;
     }
 }
