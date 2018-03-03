@@ -7,15 +7,15 @@ import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.linkedin.api.LinkedIn;
 import org.springframework.web.client.RestTemplate;
 
-import io.github.belachewhm.linkedin.resume.builder.model.ConnectionBean;
+import io.github.belachewhm.linkedin.resume.builder.model.Connection;
 
 @Configuration
 public class SpringConfig
 {
 	@Bean
-	public ConnectionBean connectionBean(LinkedIn linkedIn, ConnectionRepository connectionRepository)
+	public Connection connectionBean(LinkedIn linkedIn, ConnectionRepository connectionRepository)
 	{
-		return new ConnectionBean(linkedIn, connectionRepository);
+		return new Connection(linkedIn, connectionRepository);
 	}
 	
 	@Bean
