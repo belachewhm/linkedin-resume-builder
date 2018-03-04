@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import io.github.belachewhm.linkedin.resume.builder.model.User;
+import io.github.belachewhm.linkedin.resume.builder.model.UserBean;
 import io.github.belachewhm.linkedin.resume.builder.service.ConnectionService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -24,7 +24,7 @@ public class ConnectionController {
 	@RequestMapping(value = "/linkedin", method = RequestMethod.GET)
 	public String helloLinkedIn(Model model)
 	{
-		return connectionService.getUserData(model, new User());
+		return connectionService.getUserData(model, new UserBean());
 	}
 	
 	@RequestMapping(value = "/logout")

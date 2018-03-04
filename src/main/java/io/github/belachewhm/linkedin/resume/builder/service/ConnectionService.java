@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import io.github.belachewhm.linkedin.resume.builder.model.Connection;
-import io.github.belachewhm.linkedin.resume.builder.model.User;
+import io.github.belachewhm.linkedin.resume.builder.model.UserBean;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -21,7 +21,7 @@ public class ConnectionService
 	@Autowired
 	Connection connection;
 
-	public String getUserData(Model model, User userBean)
+	public String getUserData(Model model, UserBean userBean)
 	{
 		ConnectionRepository connectionRepository = connection.getConnectionRepository();
 		if (connectionRepository.findPrimaryConnection(LinkedIn.class) == null) {
@@ -33,13 +33,13 @@ public class ConnectionService
 		
 		
 		
-		userBean = new User()
+		userBean = new UserBean()
 		{{
 			this.setFirstName(fullProfile.getFirstName());
 			this.setLastName(fullProfile.getLastName());
-			this.setEmailAddress(fullProfile.getEmailAddress());
-			this.setHeadline(fullProfile.getHeadline());
-			this.setPublicProfileUrl(fullProfile.getProfilePictureUrl());
+			this.setEmail(fullProfile.getEmailAddress());
+			this.setTitle(fullProfile.getHeadline());
+			this.setImage(fullProfile.getProfilePictureUrl());
 		}};
 		
 		model.addAttribute("loggedInUser", userBean);

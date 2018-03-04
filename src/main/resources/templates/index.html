@@ -39,10 +39,11 @@
             <div class="header-content-inner">
 				<h2>Log In to get started</h2>
 				<form action="/connect/linkedin" method="POST" style="display: inline">
+					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> 
 	                <input type="hidden" name="scope" value="r_basicprofile,r_emailaddress" />
 	                <hr/>
 	                <button type="submit" class="btn btn-primary">
-	                    Login | <span class="fa fa-linkedin"></span>
+	                    LinkedIn | <span class="fa fa-linkedin"></span>
 					</button>
 				</form>
 			</div>

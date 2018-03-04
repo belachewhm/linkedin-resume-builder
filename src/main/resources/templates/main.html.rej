@@ -1,0 +1,10 @@
+diff a/src/main/resources/templates/main.html b/src/main/resources/templates/main.html	(rejected hunks)
+@@ -61,7 +61,7 @@
+ 				</div>
+ 				<div class="row">
+ 					<label for="image">Picture:</label>
+-					<img th:attr="src=@{*{image}}" style="width: 150px; height: 150px;"/>
++					<img th:attr="src=@{*{publicProfileUrl}}" style="width: 150px; height: 150px;"/>
+ 				</div>
+ 			</form>
+ 			<br />

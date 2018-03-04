@@ -37,12 +37,24 @@
 					<li><a class="page-scroll" href="#pick_template">Pick Template</a></li>
 					<li><a class="page-scroll" href="#generate_resume">Generate Resume</a></li>
 					<li>
-						<a class="page-scroll" href="javascript:{}" onclick="document.getElementById('logout_form').submit(); return false;">
-							Logout
-						</a>
-						<form id="logout_form" action="/logout" method="POST">
-							<input type="hidden" name="_method" value="delete" />
-						</form>
+<!-- 						<a class="page-scroll" href="javascript:{}" onclick="document.getElementById('logout_form').submit(); return false;"> -->
+<!-- 							Logout -->
+<!-- 						</a> -->
+<!-- 						<form id="logout_form" action="/logout" method="POST"> -->
+<!-- 							<input type="hidden" name="_method" value="delete" /> -->
+<!-- 						</form> -->
+
+						<div th:fragment="logout" class="logout"
+							sec:authorize="isAuthenticated()">
+							Logged in user: <b><span sec:authentication="name"></span></b> |
+							Roles: <b><span sec:authentication="authorities"></span></b>
+							<form action="#" th:action="@{/logout}" method="post">
+								<button type="submit" class="btn btn-danger btn-sm">
+									<span class="glyphicon glyphicon-log-out"></span> Log out
+								</button>
+							</form>
+						</div>
+						
 					</li>
 				</ul>
 			</div>
@@ -53,7 +65,7 @@
 			<form th:object="${loggedInUser}" method="post">
 				<div class="row">
 					<label for="username">Username:</label>
-					<span th:text="${loggedInUser.emailAddress}" />
+					<span th:text="${loggedInUser.email}" />
 				</div>
 				<div class="row">
 					<label for="firstName">Name:</label>
@@ -61,7 +73,7 @@
 				</div>
 				<div class="row">
 					<label for="image">Picture:</label>
-					<img th:attr="src=@{*{publicProfileUrl}}" style="width: 150px; height: 150px;"/>
+					<img th:attr="src=@{*{image}}" style="width: 150px; height: 150px;"/>
 				</div>
 			</form>
 			<br />
