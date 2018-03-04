@@ -31,28 +31,40 @@
 				</button>
 				<a class="navbar-brand page-scroll" href="#page-top">LinkedIn Resume Builder</a>
 			</div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li>
-						<a class="page-scroll" href="javascript:{}" onclick="document.getElementById('login_form').submit(); return false;">
-							Login
-						</a>
-						<form id="login_form" action="/connect/linkedin" method="POST">
-							<input type="hidden" name="scope" value="r_basicprofile,r_emailaddress" />
-						</form>
-					</li>
-				</ul>
-			</div>
+<!-- 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
+<!-- 				<ul class="nav navbar-nav navbar-right"> -->
+<!-- 					<li> -->
+<!-- 						<a class="page-scroll" href="javascript:{}" onclick="document.getElementById('login_form').submit(); return false;"> -->
+<!-- 							Login -->
+<!-- 						</a> -->
+<!-- 						<form id="login_form" action="/connect/linkedin" method="POST"> -->
+<!-- 							<input type="hidden" name="scope" value="r_basicprofile,r_emailaddress" /> -->
+<!-- 						</form> -->
+<!-- 					</li> -->
+<!-- 				</ul> -->
+<!-- 			</div> -->
 		</div>
 	</nav>
 
 	<header>
         <div class="header-content">
             <div class="header-content-inner">
-				<!--<h1>Generate A Resume From Your LinkedIn Profile</h1> -->
+				<h2>Login to get started</h2>
+				<form action="/connect/linkedin" method="POST" style="display: inline">
+	                <input type="hidden" name="scope" value="r_basicprofile,r_emailaddress" />
+	                <hr/>
+	                <button type="submit" class="btn btn-primary">
+	                    Login | <span class="fa fa-linkedin"></span>
+					</button>
+				</form>
 			</div>
         </div>
     </header>
+
+
+            
+
+
 
 	<!-- jQuery -->
 	<script type="text/javascript" src="/webjars/jquery/2.1.1/jquery.min.js"></script>

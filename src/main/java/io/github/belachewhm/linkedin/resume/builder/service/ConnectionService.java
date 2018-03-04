@@ -28,15 +28,20 @@ public class ConnectionService
 			return REDIRECT_LOGIN;
 		}
 
-		LinkedInProfileFull linkedInProfileFull = connection.getLinkedIn().profileOperations().getUserProfileFull();
+		LinkedInProfileFull fullProfile = connection.getLinkedIn().profileOperations().getUserProfileFull();
 
-		userBean.setEmail(linkedInProfileFull.getEmailAddress());
-		userBean.setFirstName(linkedInProfileFull.getFirstName());
-		userBean.setLastName(linkedInProfileFull.getLastName());
-		userBean.setImage(linkedInProfileFull.getProfilePictureUrl());
-
+		userBean = new User()
+		{{
+			this.setFirstName(fullProfile.getFirstName());
+			this.setLastName(fullProfile.getLastName());
+			this.setEmail(fullProfile.getEmailAddress());
+			this.setTitle(fullProfile.getHeadline());
+			
+			this.setImage(fullProfile.getProfilePictureUrl());
+		}};
+		
 		model.addAttribute("loggedInUser", userBean);
-		return "user";
+		return "main";
 	}
 	
 	public String disconnect()
