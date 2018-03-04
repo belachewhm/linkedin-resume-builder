@@ -43,6 +43,6 @@ public class ConnectionService
 	{
 		ConnectionKey key = connection.getConnectionRepository().findPrimaryConnection(LinkedIn.class).getKey();
 		connection.getConnectionRepository().removeConnection(key);
-		return "disconnected";
+		return "index";
 	}
 }

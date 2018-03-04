@@ -7,15 +7,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
 	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		if(!registry.hasMappingForPattern("/webjars/**"))
-		{
-			registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
-		}
+	public void addResourceHandlers(ResourceHandlerRegistry registry)
+	{
+		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+		registry.addResourceHandler("/images/**").addResourceLocations("classpath:/images/");
 		
-		if(!registry.hasMappingForPattern("/images/**"))
-		{
-			registry.addResourceHandler("/images/**").addResourceLocations("classpath:/images/");
-		}
+		registry.addResourceHandler("/header.html").addResourceLocations("classpath:/templates/header.html");
+		registry.addResourceHandler("/footer.html").addResourceLocations("classpath:/templates/footer.html");
+		
 	}
 }
