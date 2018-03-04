@@ -30,14 +30,16 @@ public class ConnectionService
 
 		LinkedInProfileFull fullProfile = connection.getLinkedIn().profileOperations().getUserProfileFull();
 
+		
+		
+		
 		userBean = new User()
 		{{
 			this.setFirstName(fullProfile.getFirstName());
 			this.setLastName(fullProfile.getLastName());
-			this.setEmail(fullProfile.getEmailAddress());
-			this.setTitle(fullProfile.getHeadline());
-			
-			this.setImage(fullProfile.getProfilePictureUrl());
+			this.setEmailAddress(fullProfile.getEmailAddress());
+			this.setHeadline(fullProfile.getHeadline());
+			this.setPublicProfileUrl(fullProfile.getProfilePictureUrl());
 		}};
 		
 		model.addAttribute("loggedInUser", userBean);
